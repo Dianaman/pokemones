@@ -1,36 +1,40 @@
 import React from 'react';
-import Pokemones from './pages/Pokemones';
-import { useSelector, useDispatch } from 'react-redux';
-import { fetchList } from './redux/actions/pokemon.actions';
+import {
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
-
+import { Home, Listado, Detalle, NotFound } from './pages';
 
 function App() {
 
-  const app = useSelector(state => state);
-  const {loading, error, previous, next, url} = app.pokemonReducer;
-
-  const dispatch = useDispatch();
-
-
-  React.useEffect(()=>{
-    dispatch(fetchList(url))
-  }, [url, dispatch]);
-
   return (
     <div>
-      {
-        (loading || error)
-        ? <div>
-            {loading && <div>Loading</div>}
-            {error && <div>Error</div>}           
-          </div>
-        : <Pokemones/>
-      }
+      <div>
+        <Link to="/">Home</Link>&nbsp;
+        <Link to="/pokemones">Pokemones</Link>
+      </div>
+      
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/pokemones">
+          <Listado />
+        </Route>
+        <Route path="/detalle/:pokemon">
+          <Detalle />
+        </Route>
+        <Route path="/pokemon/:id">
+          <Detalle />
+        </Route>
+        <Route>
+          <NotFound />
+        </Route>
+      </Switch>
 
-      <button onClick={() => dispatch(fetchList(previous))}>Prev</button>
-      <button onClick={() => dispatch(fetchList(next))}>Next</button>
-    </div>
+  </div>
   );
 }
 

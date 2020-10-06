@@ -1,10 +1,10 @@
 import React from 'react';
 
-export function Home () {
+export function NotFound () {
     
     return (
         <div>
-            Pokemones Home
+            404
         </div>
     );
 };

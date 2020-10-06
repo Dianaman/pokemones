@@ -6,7 +6,9 @@ const initialState = {
     results: [],
     error: null,
     isLoading: true,
-    url: 'https://pokeapi.co/api/v2/pokemon?limit=20&offset=0'
+    url: 'https://pokeapi.co/api/v2/pokemon?limit=20&offset=0',
+    id: null,
+    detalle: null
 };
 
 export function pokemonReducer(state = initialState, action) {
@@ -15,7 +17,8 @@ export function pokemonReducer(state = initialState, action) {
             const { 
                 next,
                 previous,
-                results
+                results,
+                url
             } = action.payload.response;
 
             return {
@@ -23,12 +26,17 @@ export function pokemonReducer(state = initialState, action) {
                 isLoading: false,
                 next,
                 previous,
-                results
+                results,
+                url
             };
         case SEE_DETAIL:
-                
-            break;
+            const pokemon = action.payload.response;
+
+            return {
+                ...state,
+                detalle: pokemon
+            };
         default:
-            return initialState;
+            return state;
     }
 }
