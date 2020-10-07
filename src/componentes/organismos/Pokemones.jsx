@@ -15,7 +15,7 @@ export function Pokemones () {
                 {results.map((pokemon) => {
                     return (<ListGroup.Item key={pokemon.url}>
                         {pokemon.name.toUpperCase()}&nbsp;
-                        <Link to={'/detalle/'+ getId(pokemon.url)}>More</Link>
+                        <Link to={'/detalle/'+ getId(pokemon.url)}>Detalle</Link>
                     </ListGroup.Item>);
                 })}
             </ListGroup>

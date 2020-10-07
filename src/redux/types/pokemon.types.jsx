@@ -1,3 +1,4 @@
 export const FETCH_LIST = 'POKEMON/FETCH_LIST';
 export const FETCHED = 'POKEMON/FETCHED';
 export const SEE_DETAIL = 'POKEMON/SEE_DETAIL';
+export const SET_ABILITY = 'POKEMON/SET_ABILITY';
