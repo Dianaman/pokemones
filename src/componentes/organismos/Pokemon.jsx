@@ -10,8 +10,8 @@ export function Pokemon () {
 
     return (
         detalle && 
-        <Card style={{ width: '30rem'}} className="centered">
-            <Carousel>
+        <Card style={{ backgroundColor: 'peachpuff', width: '30rem'}} className="centered">
+            <Carousel interval={2000}>
                 <Carousel.Item>
                     <img
                         className="d-block w-100"
