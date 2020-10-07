@@ -1,4 +1,5 @@
 import { SEE_DETAIL, FETCHED } from '../types/pokemon.types';
+import { SHOW_LOADING, SHOW_ERROR } from '../types/common.types';
 
 const initialState = {
     previous: '',
@@ -34,7 +35,26 @@ export function pokemonReducer(state = initialState, action) {
 
             return {
                 ...state,
+                isLoading: false,
                 detalle: pokemon
+            };
+        case SHOW_LOADING:
+            const { 
+                isLoading
+            } = action.payload;
+
+            return {
+                ...state,
+                isLoading
+            };
+        case SHOW_ERROR:
+            const { 
+                error
+            } = action.payload;
+
+            return {
+                ...state,
+                error
             };
         default:
             return state;

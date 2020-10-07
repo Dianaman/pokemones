@@ -1,15 +1,15 @@
 import { SHOW_ERROR, SHOW_LOADING} from '../types/common.types';
 
-export const showError = (show) => ({
+export const showError = (error) => ({
     type: SHOW_ERROR,
     payload: {
-        show
+        error
     }
 });
 
-export const showLoading = (show) => ({
+export const showLoading = (isLoading) => ({
     type: SHOW_LOADING,
     payload: {
-        show
+        isLoading
     }
 });

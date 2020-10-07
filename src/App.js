@@ -2,7 +2,8 @@ import React from 'react';
 import {
   Switch,
   Route,
-  Link
+  Link,
+  Redirect
 } from "react-router-dom";
 
 import { Home, Listado, Detalle, NotFound } from './pages';
@@ -26,11 +27,11 @@ function App() {
         <Route path="/detalle/:pokemon">
           <Detalle />
         </Route>
-        <Route path="/pokemon/:id">
-          <Detalle />
+        <Route path="/not-found">
+          <NotFound />
         </Route>
         <Route>
-          <NotFound />
+          <Redirect to={{pathname: '/not-found'}} />
         </Route>
       </Switch>
 

@@ -4,24 +4,25 @@ import fetch from 'cross-fetch';
 
 export function fetchList(url) {
     return (dispatch, getState) => {
-        dispatch(showLoading(true));
         return dispatch(fetchListInner(url))
     }
 }
 
 export function fetchListInner(url) {
     return dispatch => {
+        dispatch(showLoading(true));
         return fetch(url)
           .then(response => response.json())
-          .then(json => dispatch(fetched(json)))
+          .then(json => dispatch(fetched(json, url)))
       }
 }
 
-export function fetched(response){
+export function fetched(response, url){
     return {
         type: FETCHED,
         payload: {
-            response
+            response,
+            url
         }        
     }
 };
