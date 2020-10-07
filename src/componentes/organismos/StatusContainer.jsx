@@ -9,7 +9,7 @@ export function StatusContainer(props) {
     const { children } = props;
 
     return (
-    <div>
+    <div className="centered">
         {
         (isLoading || error)
         ? <div>

@@ -1,6 +1,8 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom'; 
+import { Link } from 'react-router-dom';
+import ListGroup from 'react-bootstrap/ListGroup';
+import Card from 'react-bootstrap/Card';
 
 export function Pokemones () {
     const app = useSelector(state => state);
@@ -8,14 +10,16 @@ export function Pokemones () {
 
 
     return (
-        <div>
-            {results.map((pokemon) => {
-                return (<div key={pokemon.url}>
-                    {pokemon.name}&nbsp;
-                    <Link to={'/detalle/'+ getId(pokemon.url)}>More</Link>
-                </div>);
-            })}
-        </div>
+        <Card style={{ width: '18rem' }} className="centered">
+            <ListGroup>
+                {results.map((pokemon) => {
+                    return (<ListGroup.Item key={pokemon.url}>
+                        {pokemon.name.toUpperCase()}&nbsp;
+                        <Link to={'/detalle/'+ getId(pokemon.url)}>More</Link>
+                    </ListGroup.Item>);
+                })}
+            </ListGroup>
+        </Card>
     );
 };
 

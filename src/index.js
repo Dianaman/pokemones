@@ -8,6 +8,8 @@ import  store  from './redux/store';
 import {
   BrowserRouter as Router
 } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 ReactDOM.render(
   <React.StrictMode>

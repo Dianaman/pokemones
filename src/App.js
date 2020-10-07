@@ -2,9 +2,10 @@ import React from 'react';
 import {
   Switch,
   Route,
-  Link,
-  Redirect
+  Redirect, NavLink
 } from "react-router-dom";
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
 
 import { Home, Listado, Detalle, NotFound } from './pages';
 
@@ -12,11 +13,17 @@ function App() {
 
   return (
     <div>
-      <div>
-        <Link to="/">Home</Link>&nbsp;
-        <Link to="/pokemones">Pokemones</Link>
-      </div>
-      
+      <Navbar bg="light" expand="lg">
+        <Navbar.Brand href="/">Pokemones</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <Nav.Link as={NavLink} to="/">Home</Nav.Link>
+            <Nav.Link as={NavLink} to="/pokemones">Pokemones</Nav.Link>
+          </Nav>
+        </Navbar.Collapse>
+      </Navbar>
+        
       <Switch>
         <Route exact path="/">
           <Home />
@@ -35,7 +42,7 @@ function App() {
         </Route>
       </Switch>
 
-  </div>
+    </div>
   );
 }
 

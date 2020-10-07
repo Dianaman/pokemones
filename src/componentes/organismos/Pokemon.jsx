@@ -1,27 +1,28 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import Card from 'react-bootstrap/Card';
 
 export function Pokemon () {
     const app = useSelector(state => state);
     const { detalle } = app.pokemonReducer;
 
-    React.useEffect(() => {
-        console.log('detalle', detalle);
-    }, [detalle]);
-
     return (
-        detalle && <div>
-            <h1>{detalle.name}</h1>
-            <img src={detalle.sprites.front_default} alt='pokemon front'/><br/>
+        detalle && 
+        <Card style={{ width: '18rem'}} className="centered">
+            <Card.Img variant="top" src={detalle.sprites.front_default} alt='pokemon front' />
+                        
+            <Card.Body>
+                <Card.Title>{detalle.name.toUpperCase()}</Card.Title>
 
-            <div>Habilidades:</div>
-            <ul>
-                {detalle.abilities && detalle.abilities.map((ability, index) => {
-                    return <li key={index}>{ability.ability.name}</li>
-                })}                    
-            </ul>
+                    <div>Habilidades:</div>
+                    <ul>
+                        {detalle.abilities && detalle.abilities.map((ability, index) => {
+                            return <li key={index}>{ability.ability.name}</li>
+                        })}                    
+                    </ul>
+            </Card.Body>
 
-        </div>
+        </Card>
     );
     
 }
