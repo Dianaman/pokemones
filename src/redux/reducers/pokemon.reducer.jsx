@@ -40,13 +40,10 @@ export function pokemonReducer(state = initialState, action) {
                 detalle: pokemon
             };
         case SHOW_LOADING:
-            const { 
-                isLoading
-            } = action.payload;
-
             return {
                 ...state,
-                isLoading
+                isLoading: true,
+                error: null
             };
         case SHOW_ERROR:
             const { 
@@ -55,7 +52,8 @@ export function pokemonReducer(state = initialState, action) {
 
             return {
                 ...state,
-                error
+                error,
+                isLoading: false
             };
         default:
             return state;

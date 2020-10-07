@@ -7,9 +7,8 @@ export const showError = (error) => ({
     }
 });
 
-export const showLoading = (isLoading) => ({
+export const showLoading = () => ({
     type: SHOW_LOADING,
     payload: {
-        isLoading
     }
 });

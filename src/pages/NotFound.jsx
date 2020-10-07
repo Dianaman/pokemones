@@ -8,7 +8,7 @@ export function NotFound () {
 
     React.useEffect(
         () => {
-            dispatch(showError('404'));
+            dispatch(showError('404 page not found'));
         }
     )
 

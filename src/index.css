@@ -19,3 +19,8 @@ code {
   text-align: center;
   display: block !important;
 }
+.detail-block {
+  font-weight: 500;
+  width: 80px;
+  display: inline-block;
+}
